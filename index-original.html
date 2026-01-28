@@ -575,12 +575,19 @@
                 transform: scale(1) rotate(0);
             }
         }
+      .buy-button[disabled],
+      .buy-button:disabled {
+          background: #ccc;
+          cursor: not-allowed;
+          pointer-events: none;
+       }
+
     </style>
 </head>
 <body>
     <!-- Header -->
     <header class="main-header">
-        <h1>CHITOWN COMICON 25</h1>
+        <h1>Mass COMICON 25</h1>
         <nav class="top-nav">
             <a href="#home" class="nav-btn active">HOME</a>
             <a href="#guests" class="nav-btn">GUESTS</a>
@@ -752,47 +759,48 @@
     </section>
 
     <!-- Tickets Section -->
-    <section id="tickets" class="section">
-        <div class="section-header">
-            <h2 class="section-title">GET YOUR TICKETS</h2>
-            <p class="section-subtitle">Choose your adventure level!</p>
-        </div>
-        <div class="tickets-grid">
-            <shopify-context type="collection" handle="accessories">
-              <template>
-                <div class="collection-layout">
-                  <div class="collection-grid">
-                    <shopify-list-context type="product" query="collection.products" first="12">
-                      <template>
-                        <div shopify-attr--disabled="!product.availableForSale" class="product-card">
-                          <div class="product-card__image-container">
-                            <button shopify-attr--disabled="!product.availableForSale" class="product-card__hover-button" onclick="getElementById('cart').addLine(event).showModal();">
-                              <span class="product-card__hover-button__button__text">Quick Add</span>
-                            </button>
-                            <a shopify-attr--disabled="!product.availableForSale" class="product__link" onclick="getElementById('product-modal').showModal(); getElementById('product-modal-context').update(event);">
-                              <shopify-media max-images="1" width="320" height="320" query="product.selectedOrFirstAvailableVariant.image"></shopify-media>
-                            </a>
-                          </div>
-                          <a shopify-attr--disabled="!product.availableForSale" class="product__link" onclick="getElementById('product-modal').showModal(); getElementById('product-modal-context').update(event);">
-                            <div class="product-card__details">
-                              <div class="product-card__info">
-                                <p class="product-card__category">
-                                  <shopify-data query="product.selectedOrFirstAvailableVariant.product.category.name"></shopify-data>
-                                </p>
-                                <h3 class="product-card__title"><span><shopify-data query="product.title"></shopify-data></span></h3>
-                              </div>
-                              <p class="product-card__price"><shopify-money query="product.selectedOrFirstAvailableVariant.price"></shopify-money></p>
-                            </div>
-                          </a>
-                        </div>
-                      </template>
-                    </shopify-list-context>
-                  </div>
-                </div>
-              </template>
-            </shopify-context>
-        </div>
-    </section>
+    <!-- Tickets Section -->
+<section id="tickets" class="section">
+  <div class="section-header">
+    <h2 class="section-title">GET YOUR TICKETS</h2>
+    <p class="section-subtitle">Choose your adventure level!</p>
+  </div>
+
+  <div class="tickets-grid">
+    <shopify-context type="collection" handle="comicon">
+      <template>
+        <shopify-list-context type="product" query="collection.products" first="12">
+          <template>
+            <div class="ticket-card" shopify-attr--disabled="!product.availableForSale">
+              <!-- Ticket Type -->
+              <h3 class="ticket-type">
+                <shopify-data query="product.title"></shopify-data>
+              </h3>
+
+              <!-- Price -->
+              <div class="ticket-price">
+                <shopify-money query="product.selectedOrFirstAvailableVariant.price"></shopify-money>
+              </div>
+
+              <!-- Features (optional metafield or description) -->
+              <ul class="ticket-features">
+                <li><shopify-data query="product.description"></shopify-data></li>
+              </ul>
+
+              <!-- Buy Button -->
+              <button 
+  shopify-attr--disabled="!product.availableForSale"
+  class="buy-button"
+  onclick="if (event.target.hasAttribute('disabled')) return; getElementById('cart').addLine(event).showModal(); createImpact(event, 'SOLD!');">
+  BUY NOW
+</button>
+            </div>
+          </template>
+        </shopify-list-context>
+      </template>
+    </shopify-context>
+  </div>
+</section>
 
     <!-- Location Section -->
     <section id="location" class="section">
@@ -983,7 +991,7 @@
 
     <shopify-cart id="cart"></shopify-cart>
     <dialog id="product-modal">
-      <shopify-context id="product-modal-context" type="product">
+     <shopify-context type="collection" handle="comicon">
         <template>
           <div style="background:#fff; border:4px solid #000; padding:1.5rem; max-width:640px;">
             <div style="display:flex; gap:1rem; align-items:flex-start;">
