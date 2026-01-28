@@ -757,52 +757,39 @@
             <h2 class="section-title">GET YOUR TICKETS</h2>
             <p class="section-subtitle">Choose your adventure level!</p>
         </div>
-
         <div class="tickets-grid">
-            <!-- Bind to the collection by handle -->
-            <shopify-context type="collection" handle="comicon">
-            <template>
-                <!-- Iterate products in the collection -->
-                <shopify-list-context type="product" query="collection.products" first="12">
-                <template>
-                    <!-- Product form so cart.addLine(event) knows what to add -->
-                    <shopify-product-form>
-                    <template>
-                        <div class="ticket-card" shopify-attr--disabled="!product.availableForSale">
-                        <!-- Ticket Type -->
-                        <h3 class="ticket-type">
-                            <shopify-data query="product.title"></shopify-data>
-                        </h3>
-
-                        <!-- Price -->
-                        <div class="ticket-price">
-                            <shopify-money query="product.selectedOrFirstAvailableVariant.price"></shopify-money>
+            <shopify-context type="collection" handle="accessories">
+              <template>
+                <div class="collection-layout">
+                  <div class="collection-grid">
+                    <shopify-list-context type="product" query="collection.products" first="12">
+                      <template>
+                        <div shopify-attr--disabled="!product.availableForSale" class="product-card">
+                          <div class="product-card__image-container">
+                            <button shopify-attr--disabled="!product.availableForSale" class="product-card__hover-button" onclick="getElementById('cart').addLine(event).showModal();">
+                              <span class="product-card__hover-button__button__text">Quick Add</span>
+                            </button>
+                            <a shopify-attr--disabled="!product.availableForSale" class="product__link" onclick="getElementById('product-modal').showModal(); getElementById('product-modal-context').update(event);">
+                              <shopify-media max-images="1" width="320" height="320" query="product.selectedOrFirstAvailableVariant.image"></shopify-media>
+                            </a>
+                          </div>
+                          <a shopify-attr--disabled="!product.availableForSale" class="product__link" onclick="getElementById('product-modal').showModal(); getElementById('product-modal-context').update(event);">
+                            <div class="product-card__details">
+                              <div class="product-card__info">
+                                <p class="product-card__category">
+                                  <shopify-data query="product.selectedOrFirstAvailableVariant.product.category.name"></shopify-data>
+                                </p>
+                                <h3 class="product-card__title"><span><shopify-data query="product.title"></shopify-data></span></h3>
+                              </div>
+                              <p class="product-card__price"><shopify-money query="product.selectedOrFirstAvailableVariant.price"></shopify-money></p>
+                            </div>
+                          </a>
                         </div>
-
-                        <!-- Features / description -->
-                        <ul class="ticket-features">
-                            <li>
-                            <shopify-data query="product.descriptionPlainSummary"></shopify-data>
-                            </li>
-                        </ul>
-
-                        <!-- Optional: variant selector, if products have options -->
-                        <!-- <shopify-variant-selector></shopify-variant-selector> -->
-
-                        <!-- Buy Button -->
-                        <button
-                            shopify-attr--disabled="!product.selectedOrFirstAvailableVariant.availableForSale"
-                            class="buy-button"
-                            onclick="if (event.target.hasAttribute('disabled')) return; getElementById('cart').addLine(event).showModal(); createImpact(event, 'SOLD!');"
-                        >
-                            BUY NOW
-                        </button>
-                        </div>
-                    </template>
-                    </shopify-product-form>
-                </template>
-                </shopify-list-context>
-            </template>
+                      </template>
+                    </shopify-list-context>
+                  </div>
+                </div>
+              </template>
             </shopify-context>
         </div>
     </section>
