@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro City Comic Con 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Special+Elite&family=VT323&display=swap" rel="stylesheet">
+    <script type="module" src="https://cdn.shopify.com/storefront/web-components.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+        body {
+            font-family: 'Special Elite', monospace;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4e9d8;
+            color: #222;
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.4);
+        }
+
+        /* --------------  HEADER & NAVIGATION -------------- */
+        .main-header {
+            background-color: #fff;
+            border-bottom: 5px solid #000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 5px 0px #000;
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .main-header h1 {
+            font-family: 'Bangers', cursive;
+            font-size: 3rem;
+            font-weight: 400;
+            margin: 0;
+            color: #e74c3c;
+            letter-spacing: 3px;
+            -webkit-text-stroke: 2px #000;
+            text-shadow: 4px 4px 0px #f1c40f;
+        }
+
+        .top-nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            padding: 12px 24px;
+            font-family: 'Bangers', cursive;
+            font-size: 1.8em;
+            background: #000;
+            color: #fff;
+            border: 3px solid #000;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 3px 3px 0px #666;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .nav-btn:hover {
+            transform: translate(1px, 1px);
+            box-shadow: 2px 2px 0px #666;
+        }
+
+        .nav-btn.active {
+            background: #e74c3c;
+            color: #fff;
+            -webkit-text-stroke: 1px #000;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 4px;
+            background: #000;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border-bottom: 5px solid #000;
+            flex-direction: column;
+            padding: 1rem;
+            gap: 1rem;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        /* --------------  HERO SECTION -------------- */
+        .hero-section {
+            background: linear-gradient(45deg, #3498db, #e74c3c);
+            padding: 4rem 2rem;
+            text-align: center;
+            border: 5px solid #000;
+            margin: 2rem auto;
+            max-width: 1200px;
+            position: relative;
+            box-shadow: 10px 10px 0 #000;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('hero-background.png') center/cover;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h2 {
+            font-family: 'Bangers', cursive;
+            font-size: 5em;
+            color: #fff;
+            margin: 0;
+            -webkit-text-stroke: 3px #000;
+            text-shadow: 5px 5px 0 #f1c40f;
+            animation: heroGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            from { text-shadow: 5px 5px 0 #f1c40f, 0 0 20px #fff; }
+            to { text-shadow: 5px 5px 0 #f1c40f, 0 0 40px #fff, 0 0 60px #fff; }
+        }
+
+        .hero-content p {
+            font-family: 'Special Elite', monospace;
+            font-size: 1.8em;
+            margin-top: 1rem;
+            color: #fff;
+            -webkit-text-stroke: 1px #000;
+        }
+
+        .hero-date {
+            font-family: 'Bangers', cursive;
+            font-size: 3em;
+            color: #f1c40f;
+            -webkit-text-stroke: 2px #000;
+            margin: 1rem 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 20px 40px;
+            font-family: 'Bangers', cursive;
+            font-size: 2.5em;
+            background: #f1c40f;
+            color: #000;
+            border: 4px solid #000;
+            text-decoration: none;
+            margin-top: 2rem;
+            box-shadow: 6px 6px 0 #000;
+            transition: all 0.2s;
+            -webkit-text-stroke: 1px #000;
+        }
+
+        .cta-button:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0 #000;
+        }
+
+        /* --------------  SECTIONS -------------- */
+        .section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-family: 'Bangers', cursive;
+            font-size: 4em;
+            color: #e74c3c;
+            margin: 0;
+            -webkit-text-stroke: 2px #000;
+            text-shadow: 4px 4px 0 #f1c40f;
+        }
+
+        .section-subtitle {
+            font-family: 'Special Elite', monospace;
+            font-size: 1.3em;
+            margin-top: 1rem;
+            color: #333;
+        }
+
+        /* Guest Cards */
+        .guests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .guest-card {
+            background: #fff;
+            border: 4px solid #000;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 6px 6px 0 #000;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .guest-card:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0 #000;
+        }
+
+        .guest-avatar {
+            width: 150px;
+            height: 150px;
+            border: 3px solid #000;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background-size: cover;
+            background-position: center;
+        }
+
+        #guest-sarah .guest-avatar { background-image: url('sarah-lightning.png'); }
+        #guest-mike .guest-avatar { background-image: url('mike-cosmos.png'); }
+        #guest-luna .guest-avatar { background-image: url('luna-shadow.png'); }
+
+
+        .guest-name {
+            font-family: 'Bangers', cursive;
+            font-size: 2em;
+            color: #e74c3c;
+            margin: 0;
+            -webkit-text-stroke: 1px #000;
+        }
+
+        .guest-title {
+            font-family: 'Special Elite', monospace;
+            font-size: 1.1em;
+            color: #666;
+            margin: 0.5rem 0;
+        }
+
+        /* Schedule */
+        .schedule-day {
+            background: #fff;
+            border: 4px solid #000;
+            margin-bottom: 2rem;
+            box-shadow: 6px 6px 0 #000;
+        }
+
+        .schedule-header {
+            background: #3498db;
+            padding: 1rem 2rem;
+            border-bottom: 3px solid #000;
+        }
+
+        .schedule-header h3 {
+            font-family: 'Bangers', cursive;
+            font-size: 2.5em;
+            color: #fff;
+            margin: 0;
+            -webkit-text-stroke: 1px #000;
+        }
+
+        .schedule-events {
+            padding: 2rem;
+        }
+
+        .event-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 2px dashed #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .event-time {
+            font-family: 'Bangers', cursive;
+            font-size: 1.5em;
+            color: #e74c3c;
+            min-width: 120px;
+            -webkit-text-stroke: 1px #000;
+        }
+
+        .event-details h4 {
+            font-family: 'Bangers', cursive;
+            font-size: 1.3em;
+            margin: 0;
+            color: #333;
+        }
+
+        .event-details p {
+            margin: 0.5rem 0 0;
+            color: #666;
+        }
+
+        /* Tickets */
+        .tickets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .ticket-card {
+            background: #fff;
+            border: 4px solid #000;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 6px 6px 0 #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ticket-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(241, 196, 15, 0.1) 10px,
+                rgba(241, 196, 15, 0.1) 20px
+            );
+            pointer-events: none;
+        }
+
+        .ticket-type {
+            font-family: 'Bangers', cursive;
+            font-size: 2.5em;
+            color: #e74c3c;
+            margin: 0;
+            -webkit-text-stroke: 1px #000;
+        }
+
+        .ticket-price {
+            font-family: 'Bangers', cursive;
+            font-size: 3em;
+            color: #27ae60;
+            margin: 1rem 0;
+            -webkit-text-stroke: 2px #000;
+        }
+
+        .ticket-features {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .ticket-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .buy-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-family: 'Bangers', cursive;
+            font-size: 1.8em;
+            background: #27ae60;
+            color: #fff;
+            border: 3px solid #000;
+            text-decoration: none;
+            box-shadow: 4px 4px 0 #000;
+            transition: all 0.2s;
+            -webkit-text-stroke: 1px #000;
+        }
+
+        .buy-button:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 #000;
+        }
+
+        /* Location */
+        .location-info {
+            background: #fff;
+            border: 4px solid #000;
+            padding: 2rem;
+            box-shadow: 6px 6px 0 #000;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .location-details h3 {
+            font-family: 'Bangers', cursive;
+            font-size: 2.5em;
+            color: #e74c3c;
+            margin: 0 0 1rem;
+            -webkit-text-stroke: 1px #000;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 300px;
+            background: url('map.png') center/cover;
+            border: 3px solid #000;
+        }
+
+        /* Footer */
+        .footer {
+            background: #000;
+            color: #fff;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer h3 {
+            font-family: 'Bangers', cursive;
+            font-size: 2.5em;
+            color: #f1c40f;
+            margin: 0 0 1rem;
+            -webkit-text-stroke: 1px #000;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            display: inline-block;
+            padding: 10px 20px;
+            font-family: 'Bangers', cursive;
+            font-size: 1.5em;
+            background: #3498db;
+            color: #fff;
+            border: 3px solid #fff;
+            text-decoration: none;
+            box-shadow: 3px 3px 0 #fff;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            transform: translate(1px, 1px);
+            box-shadow: 2px 2px 0 #fff;
+        }
+
+        /* --------------  RESPONSIVE STYLES -------------- */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .top-nav {
+                display: none;
+            }
+            
+            .hero-content h2 {
+                font-size: 3.5em;
+            }
+            
+            .hero-date {
+                font-size: 2em;
+            }
+            
+            .location-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .main-header {
+                flex-direction: row;
+                padding: 1rem;
+            }
+            
+            .main-header h1 {
+                font-size: 2.5em;
+            }
+            
+            .hero-content h2 {
+                font-size: 2.5em;
+            }
+            
+            .section-title {
+                font-size: 3em;
+            }
+            
+            .cta-button {
+                font-size: 2em;
+                padding: 15px 30px;
+            }
+        }
+
+        /* Comic book impact effects */
+        .impact-effect {
+            position: fixed;
+            pointer-events: none;
+            font-family: 'Bangers', cursive;
+            font-size: 5em;
+            color: #e74c3c;
+            -webkit-text-stroke: 2px #000;
+            text-shadow: 4px 4px 0 #f1c40f;
+            z-index: 9999;
+            animation: impact 0.5s cubic-bezier(.17,.67,.83,.67);
+            transform-origin: center;
+        }
+
+        @keyframes impact {
+            0% {
+                opacity: 0;
+                transform: scale(0.2) rotate(-10deg);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2) rotate(5deg);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1) rotate(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <h1>CHITOWN COMICON 25</h1>
+        <nav class="top-nav">
+            <a href="#home" class="nav-btn active">HOME</a>
+            <a href="#guests" class="nav-btn">GUESTS</a>
+            <a href="#schedule" class="nav-btn">SCHEDULE</a>
+            <a href="#tickets" class="nav-btn">TICKETS</a>
+            <a href="#location" class="nav-btn">LOCATION</a>
+        </nav>
+        <div class="hamburger" onclick="toggleMobileNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="mobile-nav">
+            <a href="#home" class="nav-btn" onclick="closeMobileNav()">HOME</a>
+            <a href="#guests" class="nav-btn" onclick="closeMobileNav()">GUESTS</a>
+            <a href="#schedule" class="nav-btn" onclick="closeMobileNav()">SCHEDULE</a>
+            <a href="#tickets" class="nav-btn" onclick="closeMobileNav()">TICKETS</a>
+            <a href="#location" class="nav-btn" onclick="closeMobileNav()">LOCATION</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section is-visible">
+        <div class="hero-content">
+            <h2>UNLEASH YOUR INNER HERO!</h2>
+            <div class="hero-date">OCTOBER 25-27, 2025</div>
+            <p>The Ultimate Comic Book & Pop Culture Experience</p>
+            <a href="#tickets" class="cta-button" onclick="createImpact(event, 'BOOM!')">GET TICKETS NOW!</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">ABOUT THE CON</h2>
+            <p class="section-subtitle">Three days of pure comic book madness!</p>
+        </div>
+        <div style="background: #fff; border: 4px solid #000; padding: 2rem; box-shadow: 6px 6px 0 #000; text-align: center;">
+            <p style="font-size: 1.2em; line-height: 1.6;">
+                Join thousands of fans, creators, and industry professionals for the biggest comic convention in Metro City! 
+                Discover new comics, meet your favorite artists, attend exclusive panels, and immerse yourself in the world 
+                of superheroes, manga, indie comics, and pop culture. Whether you're a longtime collector or just getting 
+                started, Metro City Comic Con has something amazing for everyone!
+            </p>
+        </div>
+    </section>
+
+    <!-- Guests Section -->
+    <section id="guests" class="section">
+        <div class="section-header">
+            <h2 class="section-title">FEATURED GUESTS</h2>
+            <p class="section-subtitle">Meet legendary creators and rising stars!</p>
+        </div>
+        <div class="guests-grid">
+            <div class="guest-card" id="guest-sarah" onclick="createImpact(event, 'WOW!')">
+                <div class="guest-avatar"></div>
+                <h3 class="guest-name">SARAH LIGHTNING</h3>
+                <p class="guest-title">Creator of "Thunder Squad"</p>
+                <p>Award-winning artist known for her dynamic superhero illustrations and groundbreaking storytelling.</p>
+            </div>
+            <div class="guest-card" id="guest-mike" onclick="createImpact(event, 'AMAZING!')">
+                <div class="guest-avatar"></div>
+                <h3 class="guest-name">MIKE COSMOS</h3>
+                <p class="guest-title">Writer of "Galactic Heroes"</p>
+                <p>Veteran comic writer with over 20 years in the industry and multiple Eisner Award nominations.</p>
+            </div>
+            <div class="guest-card" id="guest-luna" onclick="createImpact(event, 'EPIC!')">
+                <div class="guest-avatar"></div>
+                <h3 class="guest-name">LUNA SHADOW</h3>
+                <p class="guest-title">Manga Artist</p>
+                <p>Rising star in the manga world, creator of the hit series "Midnight Guardians".</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="section">
+        <div class="section-header">
+            <h2 class="section-title">EVENT SCHEDULE</h2>
+            <p class="section-subtitle">Don't miss these incredible events!</p>
+        </div>
+        
+        <div class="schedule-day">
+            <div class="schedule-header">
+                <h3>FRIDAY - OCTOBER 25</h3>
+            </div>
+            <div class="schedule-events">
+                <div class="event-item">
+                    <div class="event-time">10:00 AM</div>
+                    <div class="event-details">
+                        <h4>Convention Opens</h4>
+                        <p>Doors open to the public - let the adventure begin!</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-time">2:00 PM</div>
+                    <div class="event-details">
+                        <h4>Sarah Lightning Panel</h4>
+                        <p>Creating Dynamic Action Scenes - Main Stage</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-time">4:00 PM</div>
+                    <div class="event-details">
+                        <h4>Cosplay Contest Registration</h4>
+                        <p>Sign up for Saturday's epic cosplay competition!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="schedule-day">
+            <div class="schedule-header">
+                <h3>SATURDAY - OCTOBER 26</h3>
+            </div>
+            <div class="schedule-events">
+                <div class="event-item">
+                    <div class="event-time">11:00 AM</div>
+                    <div class="event-details">
+                        <h4>Indie Comics Showcase</h4>
+                        <p>Discover amazing independent creators - Artist Alley</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-time">1:00 PM</div>
+                    <div class="event-details">
+                        <h4>Mike Cosmos Writing Workshop</h4>
+                        <p>From Idea to Published Comic - Workshop Room A</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-time">6:00 PM</div>
+                    <div class="event-details">
+                        <h4>COSPLAY CONTEST</h4>
+                        <p>The main event! Prizes for best costumes - Main Stage</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="schedule-day">
+            <div class="schedule-header">
+                <h3>SUNDAY - OCTOBER 27</h3>
+            </div>
+            <div class="schedule-events">
+                <div class="event-item">
+                    <div class="event-time">12:00 PM</div>
+                    <div class="event-details">
+                        <h4>Luna Shadow Manga Workshop</h4>
+                        <p>Japanese Comic Art Techniques - Workshop Room B</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-time">3:00 PM</div>
+                    <div class="event-details">
+                        <h4>Industry Panel</h4>
+                        <p>The Future of Comics - All guests participate</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-time">5:00 PM</div>
+                    <div class="event-details">
+                        <h4>Closing Ceremony</h4>
+                        <p>Thank you and see you next year!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tickets Section -->
+    <section id="tickets" class="section">
+        <div class="section-header">
+            <h2 class="section-title">GET YOUR TICKETS</h2>
+            <p class="section-subtitle">Choose your adventure level!</p>
+        </div>
+        <div class="tickets-grid">
+            <shopify-context type="collection" handle="accessories">
+              <template>
+                <div class="collection-layout">
+                  <div class="collection-grid">
+                    <shopify-list-context type="product" query="collection.products" first="12">
+                      <template>
+                        <div shopify-attr--disabled="!product.availableForSale" class="product-card">
+                          <div class="product-card__image-container">
+                            <button shopify-attr--disabled="!product.availableForSale" class="product-card__hover-button" onclick="getElementById('cart').addLine(event).showModal();">
+                              <span class="product-card__hover-button__button__text">Quick Add</span>
+                            </button>
+                            <a shopify-attr--disabled="!product.availableForSale" class="product__link" onclick="getElementById('product-modal').showModal(); getElementById('product-modal-context').update(event);">
+                              <shopify-media max-images="1" width="320" height="320" query="product.selectedOrFirstAvailableVariant.image"></shopify-media>
+                            </a>
+                          </div>
+                          <a shopify-attr--disabled="!product.availableForSale" class="product__link" onclick="getElementById('product-modal').showModal(); getElementById('product-modal-context').update(event);">
+                            <div class="product-card__details">
+                              <div class="product-card__info">
+                                <p class="product-card__category">
+                                  <shopify-data query="product.selectedOrFirstAvailableVariant.product.category.name"></shopify-data>
+                                </p>
+                                <h3 class="product-card__title"><span><shopify-data query="product.title"></shopify-data></span></h3>
+                              </div>
+                              <p class="product-card__price"><shopify-money query="product.selectedOrFirstAvailableVariant.price"></shopify-money></p>
+                            </div>
+                          </a>
+                        </div>
+                      </template>
+                    </shopify-list-context>
+                  </div>
+                </div>
+              </template>
+            </shopify-context>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="section">
+        <div class="section-header">
+            <h2 class="section-title">LOCATION & TRAVEL</h2>
+            <p class="section-subtitle">Find us in the heart of Metro City!</p>
+        </div>
+        <div class="location-info">
+            <div class="location-details">
+                <h3>METRO CONVENTION CENTER</h3>
+                <p><strong>Address:</strong><br>
+                123 Hero Boulevard<br>
+                Metro City, MC 12345</p>
+                
+                <p><strong>Parking:</strong><br>
+                Free parking available in adjacent lots</p>
+                
+                <p><strong>Public Transit:</strong><br>
+                Metro Line Blue - Convention Center Stop<br>
+                Bus Routes 15, 23, 42</p>
+                
+                <p><strong>Hotels:</strong><br>
+                Special rates at nearby hotels!<br>
+                Use code COMIC2025 for discounts</p>
+            </div>
+            <div class="map-placeholder"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h3>STAY CONNECTED</h3>
+        <p>Follow us for updates, exclusive content, and behind-the-scenes action!</p>
+        <div class="social-links">
+            <a href="#" class="social-link" onclick="createImpact(event, 'FOLLOW!')">FACEBOOK</a>
+            <a href="#" class="social-link" onclick="createImpact(event, 'TWEET!')">TWITTER</a>
+            <a href="#" class="social-link" onclick="createImpact(event, 'GRAM!')">INSTAGRAM</a>
+            <a href="#" class="social-link" onclick="createImpact(event, 'WATCH!')">YOUTUBE</a>
+        </div>
+        <p>&copy; 2025 Metro City Comic Con. All rights reserved. Made with ❤️ for comic fans everywhere!</p>
+    </footer>
+
+    <shopify-store store-domain="letstryh2.myshopify.com" public-access-token="f275315aab660b8b9bdf0fad52687c2c" country="US" language="en"></shopify-store>
+
+    <script>
+        // Mobile Navigation
+        function toggleMobileNav() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileNav = document.querySelector('.mobile-nav');
+            
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        }
+
+        function closeMobileNav() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileNav = document.querySelector('.mobile-nav');
+            
+            hamburger.classList.remove('active');
+            mobileNav.classList.remove('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-btn');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Comic book impact effects
+        function createImpact(event, text) {
+            const impact = document.createElement('div');
+            impact.className = 'impact-effect';
+            impact.textContent = text;
+            
+            const rect = event.target.getBoundingClientRect();
+            impact.style.left = (rect.left + rect.width / 2) + 'px';
+            impact.style.top = (rect.top + rect.height / 2) + 'px';
+            
+            document.body.appendChild(impact);
+            
+            setTimeout(() => {
+                document.body.removeChild(impact);
+            }, 500);
+        }
+
+        // Add some random comic effects on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                createImpactAtPosition(200, 150, 'POW!');
+            }, 1000);
+            
+            setTimeout(() => {
+                createImpactAtPosition(window.innerWidth - 200, 200, 'BAM!');
+            }, 2000);
+        });
+
+        function createImpactAtPosition(x, y, text) {
+            const impact = document.createElement('div');
+            impact.className = 'impact-effect';
+            impact.textContent = text;
+            impact.style.left = x + 'px';
+            impact.style.top = y + 'px';
+            
+            document.body.appendChild(impact);
+            
+            setTimeout(() => {
+                if (document.body.contains(impact)) {
+                    document.body.removeChild(impact);
+                }
+            }, 500);
+        }
+        
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', (e) => {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileNav = document.querySelector('.mobile-nav');
+            
+            // Check if click is inside the nav toggle area
+            if (hamburger.contains(e.target)) {
+                return;
+            }
+            // Check if click is inside the mobile nav menu
+            if (mobileNav.contains(e.target)) {
+                // If it's a link, let the link's onclick handle closing
+                if (e.target.tagName.toLowerCase() === 'a') {
+                    return;
+                }
+            }
+
+            // If click is outside both, close the nav
+            if (!hamburger.contains(e.target) && !mobileNav.contains(e.target) && mobileNav.classList.contains('active')) {
+                closeMobileNav();
+            }
+        });
+
+        // Scroll animations for sections
+        const sectionsToAnimate = document.querySelectorAll('section');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        sectionsToAnimate.forEach(section => {
+            observer.observe(section);
+        });
+
+    </script>
+
+    <shopify-cart id="cart"></shopify-cart>
+    <dialog id="product-modal">
+      <shopify-context id="product-modal-context" type="product">
+        <template>
+          <div style="background:#fff; border:4px solid #000; padding:1.5rem; max-width:640px;">
+            <div style="display:flex; gap:1rem; align-items:flex-start;">
+              <shopify-media max-images="3" width="280" height="280" query="product.media"></shopify-media>
+              <div style="flex:1;">
+                <h3 style="font-family:'Bangers', cursive; margin:0; font-size:2em; color:#e74c3c; -webkit-text-stroke:1px #000;">
+                  <shopify-data query="product.title"></shopify-data>
+                </h3>
+                <p style="margin:.5rem 0;"><shopify-money query="product.selectedOrFirstAvailableVariant.price"></shopify-money></p>
+                <shopify-product-form>
+                  <template>
+                    <div>
+                      <shopify-variant-selector></shopify-variant-selector>
+                      <button onclick="getElementById('cart').addLine(event).showModal();" style="margin-top:1rem; padding:12px 20px; font-family:'Bangers', cursive; background:#27ae60; color:#fff; border:3px solid #000;">Add to Cart</button>
+                      <button onclick="getElementById('product-modal').close();" style="margin-left:.5rem; padding:12px 20px; font-family:'Bangers', cursive; background:#e74c3c; color:#fff; border:3px solid #000;">Close</button>
+                    </div>
+                  </template>
+                </shopify-product-form>
+              </div>
+            </div>
+          </div>
+        </template>
+      </shopify-context>
+    </dialog>
+
+</body>
+</html>
