@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metro City Comic Con 2025</title>
+    <title>Metro City Comic Con 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Special+Elite&family=VT323&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
             margin: 0;
             background-color: #f4e9d8;
             color: #222;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.4);
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
         }
 
         /* --------------  HEADER & NAVIGATION -------------- */
@@ -426,134 +426,6 @@
             box-shadow: 2px 2px 0 #000;
         }
 
-        /* --------------  MERCH SECTION STYLES -------------- */
-        .product-modal__container {
-            background: #fff;
-            border: 4px solid #000;
-            padding: 2rem;
-            box-shadow: 10px 10px 0 #000;
-            position: relative;
-            margin-bottom: 3rem;
-        }
-
-        .product-modal__close-container {
-            display: none; /* Hidden in section view */
-        }
-
-        .product-modal__layout {
-            display: flex;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-            align-items: start;
-        }
-
-        .product-modal__media {
-            flex: 1;
-            min-width: 300px;
-            border: 4px solid #000;
-            background: #f9f9f9;
-            line-height: 0;
-        }
-
-        .product-modal__media shopify-media {
-            width: 100%;
-            height: auto;
-        }
-
-        .product-modal__details {
-            flex: 1.5;
-            min-width: 300px;
-        }
-
-        .product-modal__vendor {
-            font-family: 'Special Elite', monospace;
-            text-transform: uppercase;
-            color: #666;
-            font-size: 1em;
-            letter-spacing: 1px;
-        }
-
-        .product-modal__title {
-            font-family: 'Bangers', cursive;
-            font-size: 3.5em;
-            color: #e74c3c;
-            margin: 0.5rem 0;
-            line-height: 1;
-            -webkit-text-stroke: 1.5px #000;
-            text-shadow: 3px 3px 0 #f1c40f;
-        }
-
-        .product-modal__price-container {
-            font-family: 'Bangers', cursive;
-            font-size: 2.5em;
-            color: #27ae60;
-            margin: 1rem 0;
-            display: flex;
-            align-items: baseline;
-            gap: 15px;
-        }
-
-        .product-modal__compare-price {
-            text-decoration: line-through;
-            color: #999;
-            font-size: 0.6em;
-        }
-
-        .product-modal__buttons {
-            display: flex;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .product-modal__add-button, 
-        .product-modal__buy-button {
-            flex: 1;
-            padding: 15px 25px;
-            font-family: 'Bangers', cursive;
-            font-size: 1.8em;
-            border: 3px solid #000;
-            cursor: pointer;
-            box-shadow: 4px 4px 0 #000;
-            transition: all 0.2s;
-            text-transform: uppercase;
-            -webkit-text-stroke: 1px #000;
-        }
-
-        .product-modal__add-button {
-            background: #3498db;
-            color: #fff;
-        }
-
-        .product-modal__buy-button {
-            background: #f1c40f;
-            color: #000;
-        }
-
-        .product-modal__add-button:hover,
-        .product-modal__buy-button:hover {
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0 #000;
-        }
-
-        .product-modal__description {
-            font-family: 'Special Elite', monospace;
-            line-height: 1.5;
-            font-size: 1.1em;
-            border-top: 3px dashed #000;
-            padding-top: 1.5rem;
-            color: #333;
-        }
-
-        @media (max-width: 768px) {
-            .product-modal__layout {
-                flex-direction: column;
-            }
-            .product-modal__media, .product-modal__details {
-                width: 100%;
-                min-width: unset;
-            }
-        }
-
         /* Location */
         .location-info {
             background: #fff;
@@ -715,13 +587,12 @@
 <body>
     <!-- Header -->
     <header class="main-header">
-        <h1>Mass COMICON 25</h1>
+        <h1>COSMIC COMICON 26</h1>
         <nav class="top-nav">
             <a href="#home" class="nav-btn active">HOME</a>
             <a href="#guests" class="nav-btn">GUESTS</a>
             <a href="#schedule" class="nav-btn">SCHEDULE</a>
             <a href="#tickets" class="nav-btn">TICKETS</a>
-            <a href="#merch" class="nav-btn">MERCH</a>
             <a href="#location" class="nav-btn">LOCATION</a>
         </nav>
         <div class="hamburger" onclick="toggleMobileNav()">
@@ -734,7 +605,6 @@
             <a href="#guests" class="nav-btn" onclick="closeMobileNav()">GUESTS</a>
             <a href="#schedule" class="nav-btn" onclick="closeMobileNav()">SCHEDULE</a>
             <a href="#tickets" class="nav-btn" onclick="closeMobileNav()">TICKETS</a>
-            <a href="#merch" class="nav-btn" onclick="closeMobileNav()">MERCH</a>
             <a href="#location" class="nav-btn" onclick="closeMobileNav()">LOCATION</a>
         </nav>
     </header>
@@ -743,7 +613,7 @@
     <section id="home" class="hero-section is-visible">
         <div class="hero-content">
             <h2>UNLEASH YOUR INNER HERO!</h2>
-            <div class="hero-date">OCTOBER 25-27, 2025</div>
+            <div class="hero-date">OCTOBER 25-27, 2026</div>
             <p>The Ultimate Comic Book & Pop Culture Experience</p>
             <a href="#tickets" class="cta-button" onclick="createImpact(event, 'BOOM!')">GET TICKETS NOW!</a>
         </div>
@@ -802,7 +672,7 @@
         
         <div class="schedule-day">
             <div class="schedule-header">
-                <h3>FRIDAY - OCTOBER 25</h3>
+                <h3>FRIDAY - OCTOBER 26</h3>
             </div>
             <div class="schedule-events">
                 <div class="event-item">
@@ -932,70 +802,6 @@
   </div>
 </section>
 
-<!-- Merch Section -->
-<section id="merch" class="section">
-  <div class="section-header">
-    <h2 class="section-title">EXCLUSIVE MERCH</h2>
-    <p class="section-subtitle">Grab this limited edition convention item before it's gone!</p>
-  </div>
-
-  <shopify-context type="product" handle="cosmic-comicon-t-shirt">
-    <template>
-      <div class="product-modal__container">
-        <div class="product-modal__content">
-          <div class="product-modal__layout">
-            <div class="product-modal__media">
-              <shopify-media width="416" height="416" query="product.selectedOrFirstAvailableVariant.image"></shopify-media>
-            </div>
-            <div class="product-modal__details">
-              <div class="product-modal__header">
-                <div>
-                  <span class="product-modal__vendor">
-                    <shopify-data query="product.vendor"></shopify-data>
-                  </span>
-                </div>
-                <h1 class="product-modal__title">
-                  <shopify-data query="product.title"></shopify-data>
-                </h1>
-                <div class="product-modal__price-container">
-                  <shopify-money query="product.selectedOrFirstAvailableVariant.price"></shopify-money>
-                  <shopify-money
-                    class="product-modal__compare-price"
-                    query="product.selectedOrFirstAvailableVariant.compareAtPrice"
-                  ></shopify-money>
-                </div>
-              </div>
-              <shopify-variant-selector></shopify-variant-selector>
-
-              <div class="product-modal__buttons">
-                <button
-                  class="product-modal__add-button"
-                  onclick="getElementById('cart').addLine(event).showModal(); createImpact(event, 'SNAG!');"
-                  shopify-attr--disabled="!product.selectedOrFirstAvailableVariant.availableForSale"
-                >
-                  Add to cart
-                </button>
-                <button
-                  class="product-modal__buy-button"
-                  onclick="document.querySelector('shopify-store').buyNow(event); createImpact(event, 'ZAP!');"
-                  shopify-attr--disabled="!product.selectedOrFirstAvailableVariant.availableForSale"
-                >
-                  Buy now
-                </button>
-              </div>
-              <div class="product-modal__description">
-                <span class="product-modal__description-text">
-                  <shopify-data query="product.descriptionHtml"></shopify-data>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </template>
-  </shopify-context>
-</section>
-
     <!-- Location Section -->
     <section id="location" class="section">
         <div class="section-header">
@@ -1018,7 +824,7 @@
                 
                 <p><strong>Hotels:</strong><br>
                 Special rates at nearby hotels!<br>
-                Use code COMIC2025 for discounts</p>
+                Use code COMIC2026 for discounts</p>
             </div>
             <div class="map-placeholder"></div>
         </div>
@@ -1034,7 +840,7 @@
             <a href="#" class="social-link" onclick="createImpact(event, 'GRAM!')">INSTAGRAM</a>
             <a href="#" class="social-link" onclick="createImpact(event, 'WATCH!')">YOUTUBE</a>
         </div>
-        <p>&copy; 2025 Metro City Comic Con. All rights reserved. Made with ❤️ for comic fans everywhere!</p>
+        <p>&copy; 2026 Metro City Comic Con. All rights reserved. Made with ❤️ for comic fans everywhere!</p>
     </footer>
 
     <shopify-store store-domain="letstryh2.myshopify.com" public-access-token="f275315aab660b8b9bdf0fad52687c2c" country="US" language="en"></shopify-store>
