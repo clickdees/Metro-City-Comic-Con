@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosmic Comic Con 2026</title>
+    <title>Metro City Comic Con 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Special+Elite&family=VT323&display=swap" rel="stylesheet">
@@ -419,7 +419,6 @@
             box-shadow: 4px 4px 0 #000;
             transition: all 0.2s;
             -webkit-text-stroke: 1px #000;
-            cursor: pointer;
         }
 
         .buy-button:hover {
@@ -504,7 +503,6 @@
             display: flex;
             gap: 1rem;
             margin: 2rem 0;
-            flex-flow: wrap;
         }
 
         .product-modal__add-button, 
@@ -805,41 +803,7 @@
             -webkit-text-stroke: 1px #000; 
             box-shadow: 2px 2px 0 rgba(0,0,0,0.5);
         }
-        .main-image-media img{margin-top: 7px; margin-left: 6px;}
-        /* Comic Input Styles */
-        .comic-input-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
 
-        .comic-input-group label {
-            display: block;
-            font-family: 'Bangers', cursive;
-            font-size: 1.5rem;
-            color: #e74c3c;
-            -webkit-text-stroke: 1px #000;
-            margin-bottom: 5px;
-        }
-
-        .comic-input-group input {
-            width: 100%;
-            padding: 10px;
-            font-family: 'Special Elite', monospace;
-            font-size: 1.2rem;
-            border: 3px solid #000;
-            background: #fff;
-            box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
-            box-sizing: border-box; /* Ensures padding doesn't break layout */
-        }
-
-        .comic-input-group input:focus {
-            outline: none;
-            background: #fdfefe;
-            box-shadow: 2px 2px 0 rgba(0,0,0,1);
-            transform: translate(2px, 2px);
-        }
-        advanced-buy-button {margin-top: 1%;} 
-         
     </style>
 </head>
 <body>
@@ -870,7 +834,9 @@
                 </svg>
                 
                 <!-- Shopify Component that updates automatically -->
-                 <span id="cart-count" class="cart-count-badge">0</span>
+                <div class="cart-count-badge">
+                    <shopify-cart-count></shopify-cart-count>
+                </div>
             </button>
 
             <!-- Hamburger Menu -->
@@ -1071,11 +1037,11 @@
 
               <!-- Buy Button -->
               <button 
-                shopify-attr--disabled="!product.availableForSale"
-                class="buy-button"
-                onclick="if (event.target.hasAttribute('disabled')) return; getElementById('cart').addLine(event).showModal(); createImpact(event, 'SOLD!');">
-                BUY NOW
-                </button>
+  shopify-attr--disabled="!product.availableForSale"
+  class="buy-button"
+  onclick="if (event.target.hasAttribute('disabled')) return; getElementById('cart').addLine(event).showModal(); createImpact(event, 'SOLD!');">
+  BUY NOW
+</button>
             </div>
           </template>
         </shopify-list-context>
@@ -1102,7 +1068,7 @@
               
               <!-- Main Image Wrapper -->
               <div class="product-modal__main-image">
-                <shopify-media layout="fixed" width="420" height="420" query="product.selectedOrFirstAvailableVariant.image" class="main-image-media"></shopify-media>
+                <shopify-media layout="fixed" width="420" height="420" query="product.selectedOrFirstAvailableVariant.image" style="display: flex;justify-content: center;width: 100%;"></shopify-media>
               </div>
 
               <!-- Thumbnails Grid (New Feature) -->
@@ -1121,9 +1087,9 @@
             <!-- DETAILS COLUMN (Identical to your original) -->
             <div class="product-modal__details">
               <div class="product-modal__header">
-                <!-- <div class="product-modal__vendor">
+                <div class="product-modal__vendor">
                   <shopify-data query="product.vendor"></shopify-data>
-                </div> -->
+                </div>
                 <h1 class="product-modal__title">
                   <shopify-data query="product.title"></shopify-data>
                 </h1>
@@ -1139,12 +1105,12 @@
               <shopify-variant-selector></shopify-variant-selector>
 
               <div class="product-modal__buttons">
-               <!-- <button
-                class="product-modal__add-button"
-                onclick="handleAddToCart(event)"
-                shopify-attr--disabled="!product.selectedOrFirstAvailableVariant.availableForSale"
+                <button
+                  class="product-modal__add-button"
+                  onclick="getElementById('cart').addLine(event).showModal(); createImpact(event, 'SNAG!');"
+                  shopify-attr--disabled="!product.selectedOrFirstAvailableVariant.availableForSale"
                 >
-                Add to cart
+                  Add to cart
                 </button>
                 <button
                   class="product-modal__buy-button"
@@ -1152,34 +1118,7 @@
                   shopify-attr--disabled="!product.selectedOrFirstAvailableVariant.availableForSale"
                 >
                   Buy now
-                </button> -->
-                
-              <!-- Add this hidden element inside your product-modal__details -->
-                <span id="dynamic-variant-id" style="display:none;">
-                <shopify-data query="product.selectedOrFirstAvailableVariant.id"></shopify-data>
-                </span>
-
-                <!-- NEW: Tracks if the item is in stock (true/false) -->
-                <span id="dynamic-available-status" style="display:none;">
-                <shopify-data query="product.selectedOrFirstAvailableVariant.availableForSale"></shopify-data>
-                </span>
-
-                <!-- 1. The Dynamic Input Field -->
-                <div class="comic-input-group">
-                <label for="custom-engraving">ENTER HERO NAME (Engraving):</label>
-                <input type="text" id="custom-engraving" placeholder="e.g. Captain Awesome" maxlength="20">
-                </div>
-
-                <!-- 2. Your Custom Button (Cleaned up) -->
-                <!-- We removed data-engraving, but kept gift-wrap -->
-                <!-- <advanced-buy-button 
-                data-gift-wrap="true"
-                >
-                ADD THIS TO CART
-                </advanced-buy-button> -->
-                <advanced-buy-button>ADD THIS TO CART</advanced-buy-button>
-
-
+                </button>
               </div>
 
               <div class="product-modal__description">
@@ -1238,8 +1177,6 @@
         </div>
         <p>&copy; 2026 Metro City Comic Con. All rights reserved. Made with ❤️ for comic fans everywhere!</p>
     </footer>
-    
-    <shopify-cart id="cart"></shopify-cart>
 
 
     <script>
@@ -1386,18 +1323,8 @@
 
     </script>
 
+    <shopify-cart id="cart"></shopify-cart>
   
-<script>
-
-function handleAddToCart(event) {
-  console.log("this is the event:", event);  
-  document.getElementById('cart').addLine(event).showModal(); 
-  createImpact(event, 'SNAG!');
-}
-
-  
-</script>
-
-<script type="module" src="extended-cart.js"></script>
+    
 </body>
 </html>
